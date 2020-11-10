@@ -3,8 +3,35 @@
 #include <stdlib.h>
 #include <assert.h>
 #include <time.h>  
+#include "myalloc-bloc-entete-0.h"
 
 #define TAILLE_MAX 1024
+
+void* myalloc(size_t n){
+  size_t taille=ALIGN(n+ENTETE_SIZE);
+  void* ptr=(void*) sbrk(taille);
+
+  bloc_entete* ptr_entete=(bloc_entete*) ptr;
+  ptr-entete->taille = taille;
+  ptr-entete->libre=0;
+
+  void* user_addresse = ((char*) ptr)+ENTETE_SIZE;
+  return user_addresse;
+}
+void myfree(void* user_addresse){
+  bloc_entete* ptr-entete= (bloc_entete*) ((char*)user_addresse - ENTETE_SIZE);
+  
+  ptr-entete->libre=1;
+}
+
+void blocinfo(void* ptr){
+  bloc_entete* bloc_total=(bloc_entete*) ((char*)ptr - ENTETE_SIZE);
+  printf("pointeur bloc%p \n, pointeur donnees %p \n, taille totale: %d, \nbloc libre? %d\n",
+  bloc_total,
+  ptr
+  bloc_total->taille,
+  bloc_total->libre);
+}
 
 void test0()
 {
@@ -17,13 +44,13 @@ void test0()
       printf("allocation de %d bytes à %p \n",taille,table_des_pointeurs[i]);
       int j ;
       for( j = 0; j < taille ; j++)
-	{
-	  table_des_pointeurs[i][j] = taille-j;
-	}  
+  {
+    table_des_pointeurs[i][j] = taille-j;
+  }  
       for( j = 0; j < taille ; j++)
-	{
-	  assert( table_des_pointeurs[i][j] == taille-j);
-	}
+  {
+    assert( table_des_pointeurs[i][j] == taille-j);
+  }
     }
   
   for(i = 0; i< 10; i++)
@@ -58,13 +85,13 @@ void test1()
       printf("allocation de %d bytes à %p \n",taille,buffer);
       int j ;
       for( j = 0; j< taille ; j++)
-	{
-	  buffer[j] = taille-j;
-	}  
+  {
+    buffer[j] = taille-j;
+  }  
       for( j = 0; j < taille ; j++)
-	{
-	  assert(buffer[j] == taille-j);
-	}
+  {
+    assert(buffer[j] == taille-j);
+  }
       myfree(buffer);
     }
 }
