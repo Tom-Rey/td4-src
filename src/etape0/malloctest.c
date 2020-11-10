@@ -13,7 +13,7 @@ int main(int argc, char* argv[])
   srand (time(NULL));
   int taille = 1 + (rand() % TAILLE_MAX);
   int* buffer = (int*)myalloc(taille*sizeof(int));
-  printf("allocation de %d entiers (%d octect par entier) à: %p \n",taille,sizeof(int),(void*)buffer);
+  printf("allocation de %ld entiers (%d octect par entier) à: %p \n",taille,sizeof(int),(void*)buffer);
   int i ;
   for( i = 0; i < taille ; i++)
     {
