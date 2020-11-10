@@ -3,6 +3,10 @@
 #include <stdlib.h>
 #include <assert.h>
 #include <time.h>  
+#include "myalloc-1.c.inc"
+#include "myfree-1.c.inc"
+#include "blocinfo-1.c.inc"
+
 
 #define TAILLE_MAX 1024
 
