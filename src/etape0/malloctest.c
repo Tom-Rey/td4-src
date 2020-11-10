@@ -23,8 +23,8 @@ int main(int argc, char* argv[])
     {
       assert(buffer[i] == taille-i);
     }
-  blocinfo(buffer);
+  bloc_info(buffer);
   myfree(buffer);
-  blocinfo(buffer);
+  bloc_info(buffer);
   printf("[%s] termine\n",argv[0]);
 }
