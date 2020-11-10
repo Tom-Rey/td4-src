@@ -41,7 +41,7 @@ void test2()
       buffer_ptr = myalloc(1024*sizeof(char));
       printf("allocation de 1024 bytes à %p \n",buffer_ptr);
       assert(buffer_ptr != NULL);
-      blocinfo(buffer_ptr);
+      bloc_info(buffer_ptr);
     }
   else
     {
