@@ -11,10 +11,10 @@ int main(int argc, char* argv[])
   printf("1");
   printf("[%s] lancee\n",argv[0]);
   //allocation d'un tableau
-  printf("1");
+  printf("2");
   srand (time(NULL));
   int taille = 1 + (rand() % TAILLE_MAX);
-  printf("1");
+  printf("3");
   int* buffer = (int*)myalloc(taille*sizeof(int));
   printf("allocation de %ld entiers (%d octect par entier) à: %p \n",taille,sizeof(int),(void*)buffer);
   int i ;
@@ -22,12 +22,12 @@ int main(int argc, char* argv[])
     {
       buffer[i] = taille-i;
     }  
-  printf("2");
+  printf("4");
   for( i = 0; i < taille ; i++)
     {
       assert(buffer[i] == taille-i);
     }
-  printf("3");  
+  printf("5");  
   bloc_info(buffer);
   myfree(buffer);
   bloc_info(buffer);
