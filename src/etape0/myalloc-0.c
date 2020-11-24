@@ -8,16 +8,16 @@ void* myalloc(size_t n){
 	void* ptr=(void*) sbrk(taille);
 
 	bloc_entete* ptr_entete=(bloc_entete*) ptr;
-	ptrentete->taille = taille;
-	ptrentete->libre=0;
+	ptr_entete->taille = taille;
+	ptr_entete->libre=0;
 
 	void* user_addresse = ((char*) ptr)+ENTETE_SIZE;
 	return user_addresse;
 }
 void myfree(void* user_addresse){
-	bloc_entete* ptrentete= (bloc_entete*) ((char*)user_addresse - ENTETE_SIZE);
+	bloc_entete* ptr_entete= (bloc_entete*) ((char*)user_addresse - ENTETE_SIZE);
 	
-	ptrentete->libre=1;
+	ptr_entete->libre=1;
 }
 
 void blocinfo(void* ptr){
