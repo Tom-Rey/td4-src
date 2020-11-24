@@ -19,7 +19,7 @@ void myfree(void* user_addresse){
 	ptr_entete->libre=1;
 }
 
-void blocinfo(void* ptr){
+void bloc_info(void* ptr){
 	bloc_entete* bloc_tot=(bloc_entete*) ((char*)ptr - ENTETE_SIZE);
 	printf("pointeur bloc%p \n, pointeur donnees %p \n, taille totale: %d, \nbloc libre? %d\n",
 	bloc_tot,
