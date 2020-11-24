@@ -10,6 +10,7 @@ int main(int argc, char* argv[])
 {
   printf("[%s] lancee\n",argv[0]);
   //allocation d'un tableau
+  printf("1");
   srand (time(NULL));
   int taille = 1 + (rand() % TAILLE_MAX);
   printf("1");
