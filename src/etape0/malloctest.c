@@ -8,6 +8,7 @@
 
 int main(int argc, char* argv[])
 {
+  printf("1");
   printf("[%s] lancee\n",argv[0]);
   //allocation d'un tableau
   printf("1");
