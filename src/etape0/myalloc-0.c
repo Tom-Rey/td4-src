@@ -1,11 +1,13 @@
 #include "../generic/myalloc.h"
 #include "myalloc-bloc-entete-0.h"
 #include <stdio.h>
-
+#include "myalloc-0.c.inc"
+#include "myfree-0.c.inc"
+#include "blocinfo-0.c.inc"
 
 void* myalloc(size_t n){
 	size_t taille=ALIGN(n+ENTETE_SIZE);
-	void* ptr=(void*) sbrk(taille);
+	void* ptr= (void*) sbrk(taille);
 
 	bloc_entete* ptr_entete=(bloc_entete*) ptr;
 	ptr_entete->taille = taille;
