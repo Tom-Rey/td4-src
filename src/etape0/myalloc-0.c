@@ -1,6 +1,7 @@
 #include "../generic/myalloc.h"
 #include "myalloc-bloc-entete-0.h"
 #include <stdio.h>
+#include <unistd.h>
 
 void* myalloc(size_t n){
 	size_t taille=ALIGN(n+ENTETE_SIZE);
